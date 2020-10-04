@@ -1,0 +1,38 @@
+        <div class="container-1">
+          <ul class="item-4">
+            <li
+              v-for="comment in comments"
+              :key="comment"
+              class="item-5"
+              @click="comment.isActive = !comment.isActive"
+              v-bind:class="{ 'is-active': !comment.isActive }"
+            >
+              {{ comment.value }}
+            </li>
+          </ul>
+          <ul class="item-4">
+            <li
+              v-for="comment in comments"
+              :key="comment"
+              class="item-5"
+              @click="comment.isActive = !comment.isActive"
+              v-bind:class="{ 'is-active': comment.isActive }"
+            >
+              {{ comment.value }}
+            </li>
+          </ul>
+        </div>
+
+        
+      comments: [
+        {
+          id: 1,
+          isActive: false,
+          value: "a",
+        },
+        {
+          id: 2,
+          isActive: false,
+          value: "b",
+        },
+      ],
