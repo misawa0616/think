@@ -9,31 +9,18 @@
         rowspan="2"
         style="font-size: 8px; width: 150px; background-color: aquamarine"
       >
-        好きか嫌いか教えてください
+        {{ item1 }}
       </td>
       <td style="text-align: center">
-        <div v-for="item1 in item1s" :key="item1">
-          <span style="margin-right: 20px">{{ item1.title }}</span>
-          <input
-            style="width: 8px; margin-right: 5px; vertical-align: middle"
-            type="radio"
-            v-bind:name="item1.name"
-          /><span style="margin-right: 10px">好き</span>
-          <input
-            style="width: 8px; margin-right: 5px; vertical-align: middle"
-            type="radio"
-            v-bind:name="item1.name"
-          /><span style="margin-right: 10px">どちらかといえば好き</span>
-          <input
-            style="width: 8px; margin-right: 5px; vertical-align: middle"
-            type="radio"
-            v-bind:name="item1.name"
-          /><span style="margin-right: 10px">どちらかといえば嫌い</span>
-          <input
-            style="width: 8px; margin-right: 5px; vertical-align: middle"
-            type="radio"
-            v-bind:name="item1.name"
-          /><span>嫌い</span>
+        <div v-for="(item2, index1) in item1s" :key="index1">
+          {{ item2.title }}
+          <span v-for="(item3, index2) in item2s" :key="index2">
+            <input
+              style="width: 8px; margin-right: 5px; vertical-align: middle"
+              type="radio"
+              v-bind:name="item1.name"
+            /><span style="margin-right: 10px">{{ item3 }}</span>
+          </span>
         </div>
       </td>
     </tr>
@@ -45,6 +32,12 @@
 
 <script>
 export default {
-  props: ["item1s"],
+  props: ["item1s", "item1"],
+
+  data() {
+    return {
+      item2s: ["好き", "どちらかといえば好き", "どちらかといえば嫌い", "嫌い"],
+    };
+  },
 };
 </script>

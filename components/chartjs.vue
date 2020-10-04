@@ -19,6 +19,17 @@ export default {
               "#FF44FF",
             ], //背景色
           },
+          {
+            //データ設定
+            data: [], //データ内容
+            backgroundColor: [
+              "#FF4444",
+              "#4444FF",
+              "#44BB44",
+              "#FFFF44",
+              "#FF44FF",
+            ], //背景色
+          },
         ],
       },
       options: {
@@ -92,6 +103,7 @@ export default {
   },
   mounted() {
     this.chartdata.datasets[0].data = [10, 20, 30];
+    this.chartdata.datasets[1].data = [5, 15, 15];
     console.log(this);
     this.renderChart(this.chartdata, this.options);
   },

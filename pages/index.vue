@@ -10,8 +10,8 @@
           <comment></comment>
         </div>
         <br />
-        <div class="container-1" v-for="item1s in lists" :key="item1s">
-          <like :item1s="item1s"></like>
+        <div class="container-1" v-for="(item1s, index) in lists" :key="index">
+          <like :item1s="item1s" :item1="item1[index]"></like>
         </div>
       </div>
     </div>
@@ -32,6 +32,12 @@ export default {
         [{ title: "運動", name: "3" }],
         [{ title: "ゲーム", name: "4" }],
         [{ title: "会話", name: "5" }],
+      ],
+      item1: [
+        "好きか嫌いか教えてください",
+        "親友が好きか嫌いか教えてください",
+        "家族が好きか嫌いか教えてください",
+        "先生が好きか嫌いか教えてください",
       ],
     };
   },
